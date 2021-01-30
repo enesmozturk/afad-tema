@@ -1,0 +1,5 @@
+#######Kullanicilarin ayarlarini duzeltiyor###########
+find /home -type f -name "xfce4-desktop.xml" -print0 | xargs -0 sed -i 's+name="last-image" type="string".*+name="last-image" type="string" value="/usr/share/images/desktop-base/default"/>+g'
+######olceklendırme fil olmasini sagliyor##############
+find /home -type f -name "xfce4-desktop.xml" -print0 | xargs -0 sed -i 's+name="image-style" type="int".*+name="image-style" type="int" value="3"/>+g'
+
