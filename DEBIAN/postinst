@@ -20,3 +20,4 @@ if [ "$SSH_COMMAND" -eq "0" ]
         echo "ok:intro güncel"
 	fi
 rm -r /tmp/afad-tema
+########Bitti#######
