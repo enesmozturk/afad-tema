@@ -1,8 +1,0 @@
-Package: afad-tema
-Version: 21.01.19
-Installed-Size: 10052
-Maintainer: Enes Mucahit OZTURK <enesmozturk@afad.gov.tr>
-Architecture: amd64
-Description: Afad Kurumsal Tema
-   Masaustu font ve resimleri degistirme
-
