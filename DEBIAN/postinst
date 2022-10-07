@@ -2,22 +2,22 @@
 find /home -type f -name "xfce4-desktop.xml" -print0 | xargs -0 sed -i 's+name="last-image" type="string".*+name="last-image" type="string" value="/usr/share/images/desktop-base/default"/>+g'
 ######olceklendırme fil olmasini sagliyor##############
 find /home -type f -name "xfce4-desktop.xml" -print0 | xargs -0 sed -i 's+name="image-style" type="int".*+name="image-style" type="int" value="3"/>+g'
-
-FILE="/usr/share/plymouth/themes/purple/plymouth_background_future.png"
-HASH="bf32c7f381efae136ba291dc81f407fdc7df0c5b"
-SSH_COMMAND=$(echo "$HASH $FILE" | sha1sum -c | grep Tamam | wc -l)
-
-hash=$(sha1sum $FILE |cut -d ' ' -f 1)
-if [ "$SSH_COMMAND" -eq "0" ]
-	then
-		cp -r /tmp/afad-tema/plymouth_background_future.png /usr/share/plymouth/themes/purple/
-        cp -r /tmp/afad-tema/logo.png /usr/share/plymouth/themes/purple/
-        plymouth-set-default-theme -R purple
-        sed -i 's+GRUB_TIMEOUT=5+GRUB_TIMEOUT=0+g' /etc/default/grub
-        update-grub
-        echo "ok:intro güncellendi"
-    else
-        echo "ok:intro güncel"
-	fi
-rm -r /tmp/afad-tema
+cp -r /usr/share/images/desktop-base/* /usr/share/backgrounds/
+#    FILE="/usr/share/plymouth/themes/purple/plymouth_background_future.png"
+#    HASH="bf32c7f381efae136ba291dc81f407fdc7df0c5b"
+ #   SSH_COMMAND=$(echo "$HASH $FILE" | sha1sum -c | grep Tamam | wc -l)
+#
+ #   hash=$(sha1sum $FILE |cut -d ' ' -f 1)
+  #  if [ "$SSH_COMMAND" -eq "0" ]
+#        then
+#            cp -r /opt/afad-tema/plymouth_background_future.png /usr/share/plymouth/themes/purple/
+#            cp -r /opt/afad-tema/logo.png /usr/share/plymouth/themes/purple/
+#            plymouth-set-default-theme -R purple
+#            sed -i 's+GRUB_TIMEOUT=5+GRUB_TIMEOUT=0+g' /etc/default/grub
+#            update-grub
+#            echo "ok:intro güncellendi"
+#        else
+#            echo "ok:intro güncel"
+#        fi
+#    rm -r /opt/afad-tema
 ########Bitti#######
