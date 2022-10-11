@@ -1,8 +1,35 @@
+ #!/bin/bash
+#####################################################################################
+#####################################################################################
+##########################    AFAD - Tema   #########################################
+#####################################################################################
+#####################################################################################
+#####################################################################################
+#####################################################################################
+ cp -r /usr/share/images/desktop-base/* /usr/share/backgrounds/
+ 
+  GNOME_DURUMU= $(apt list--installed  | grep gnome-session | wc -l)
+  XFCE_DURUMU= $(apt list--installed  | grep xfce4-session | wc -l)
+    if [ "$GNOME_DURUMU" -gt "0"]
+      then
+      echo "Gnome"
+
+    fi
+
+
+    if [ "$XFCE_DURUMU" -gt "0"]
+      then
+
 #######Kullanicilarin ayarlarini duzeltiyor###########
 find /home -type f -name "xfce4-desktop.xml" -print0 | xargs -0 sed -i 's+name="last-image" type="string".*+name="last-image" type="string" value="/usr/share/images/desktop-base/default"/>+g'
 ######olceklendırme fil olmasini sagliyor##############
 find /home -type f -name "xfce4-desktop.xml" -print0 | xargs -0 sed -i 's+name="image-style" type="int".*+name="image-style" type="int" value="3"/>+g'
-cp -r /usr/share/images/desktop-base/* /usr/share/backgrounds/
+ 
+cp -r /opt/afad-tema/afad0802.jpg /usr/share/lightdm/lightdm-hvl-greeter.conf.d/resources/bgs/afad0802.jpg
+    fi
+
+
+
 #    FILE="/usr/share/plymouth/themes/purple/plymouth_background_future.png"
 #    HASH="bf32c7f381efae136ba291dc81f407fdc7df0c5b"
  #   SSH_COMMAND=$(echo "$HASH $FILE" | sha1sum -c | grep Tamam | wc -l)
